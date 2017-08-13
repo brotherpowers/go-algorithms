@@ -1,15 +1,19 @@
 package main
 
-import "fmt"
-import "github.com/brotherpowers/linearSearch"
+import (
+	"fmt"
+
+	"github.com/brotherpowers/linearSearch"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	arr := []interface{}{1, 2, 7, 8, 3, 4, 6, 9, 5}
+	searchFor := 4
 
-	arr := []interface{}{1,2,3,4}
+	fmt.Printf("Linear search: %v in %v\n", searchFor, arr)
 
-	position := linearSearch.Search(arr, 4)
+	// Running the algo
+	position := linearSearch.Search(arr, searchFor)
 
-	fmt.Println("Search at: ", position)
+	fmt.Printf("Found At Position: %d", position)
 }
-
