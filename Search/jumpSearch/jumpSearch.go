@@ -1,9 +1,6 @@
 package jumpSearch
 
-import (
-	"fmt"
-	"math"
-)
+import "math"
 
 // Search with jump
 func Search(inputArray []int, searchElement int) int {
@@ -18,7 +15,6 @@ func Search(inputArray []int, searchElement int) int {
 			return -1
 		}
 	}
-	fmt.Printf("%v", min(steps, length)-1)
 
 	for inputArray[key] < searchElement {
 		key = key + 1
