@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/brotherpowers/linearSearch"
+	"github.com/brotherpowers/Search/linearSearch"
 )
 
 func main() {
