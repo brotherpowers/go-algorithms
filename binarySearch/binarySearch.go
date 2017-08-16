@@ -25,3 +25,22 @@ func Search(src []Comparable, searchable Comparable) int {
 	}
 	return -1
 }
+
+
+func SearchInt(src []int, searchable int) int{
+	lowerBound := 0
+	upperBound := len(src)
+
+	for lowerBound < upperBound{
+		mid := lowerBound + (upperBound - lowerBound) / 2
+	
+		if src[mid] == searchable{
+			return mid
+		}else if src[mid] < searchable{
+			lowerBound = mid + 1
+		}else{
+			upperBound = mid
+		}
+	}
+	return -1
+}
