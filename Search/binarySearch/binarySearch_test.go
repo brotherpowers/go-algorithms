@@ -21,7 +21,7 @@ func TestSearch(t *testing.T){
 }
 
 type TestCase struct{
-	src []Comparable
+	src [] Comparable
 	searchable Comparable
 	want int
 }

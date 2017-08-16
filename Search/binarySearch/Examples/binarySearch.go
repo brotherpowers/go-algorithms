@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import "github.com/brotherpowers/binarySearch"
+import "github.com/brotherpowers/Search/binarySearch"
 
 func main() {
 	arr := []binarySearch.Comparable{Rect{100,200}, Rect{200, 200}, Rect{200,350}}
