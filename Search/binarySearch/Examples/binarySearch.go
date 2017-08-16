@@ -5,28 +5,35 @@ import "github.com/brotherpowers/Search/binarySearch"
 
 func main() {
 	arr := []binarySearch.Comparable{Rect{100,200}, Rect{200, 200}, Rect{200,350}}
-
 	searchable := Rect{100,200}
+
+	// log
+	fmt.Printf("Searching for (%v) in %v\n", searchable, arr)
 
 	result := binarySearch.Search(arr, searchable)
 
-	fmt.Println(result)
+	// log
+	fmt.Printf("Element found at %v\n", result)
 	
 	intArr := []int{1,2,3,17,45,29,400,1032,9979}
 	searchNumber_1 := 47
-	searchNumber_2 := 1032
 
+	// log
+	fmt.Printf("Searching for (%v) in %v\n", searchNumber_1, intArr)
 	searchResultNumber_1 := binarySearch.SearchInt(intArr, searchNumber_1)
-	fmt.Println("Search result for (%q) is %q", searchNumber_1, searchResultNumber_1)
-
-	searchResultNumber_2 := binarySearch.SearchInt(intArr, searchNumber_2)
-	fmt.Println("Search result for (%q) is %q", searchNumber_2, searchResultNumber_2)
+	
+	// log
+	fmt.Printf("element found at  (%v) is %v\n", searchNumber_1, searchResultNumber_1)
 
 }
 
 type Rect struct{
 	width, height int
 }
+
+func (r Rect) String() string{
+	return fmt.Sprintf("Rect{%v,%v}", r.width, r.height)
+} 
 
 func (rect Rect) Compare(other binarySearch.Comparable) int{
 	 value, ok := other.(Rect)
