@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/brotherpowers/Search/jumpSearch"
+	"github.com/go-algorithms/Search/jumpSearch"
 )
 
 func main() {

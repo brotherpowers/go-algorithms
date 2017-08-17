@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import "github.com/brotherpowers/Search/binarySearch"
+import "github.com/go-algorithms/Search/binarySearch"
 
 func main() {
 	intArr := []int{1,2,3,17,45,29,400,1032,9979}
