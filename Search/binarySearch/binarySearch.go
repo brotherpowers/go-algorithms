@@ -1,6 +1,9 @@
 package binarySearch
 
-func Search(inputArray []int, searchTerm int) int{
+
+// The iterative version of binary search
+
+func SearchIterative(inputArray []int, searchTerm int) int{
 	lowerBound := 0
 	upperBound := len(inputArray)
 
@@ -17,3 +20,23 @@ func Search(inputArray []int, searchTerm int) int{
 	}
 	return -1
 }
+
+// The recursive version of binary search.
+
+func SearchRecursive(inputArray []int, searchTerm, lowerBound, upperBound int) int{
+	if lowerBound > upperBound {
+		return -1
+	}else{
+		mid := lowerBound + (upperBound - lowerBound)/2
+
+		if inputArray[mid] > searchTerm{
+			return SearchRecursive(inputArray, searchTerm, lowerBound, mid)
+		}else if inputArray[mid] < searchTerm{
+			return SearchRecursive(inputArray, searchTerm, mid+1, upperBound)
+		}else{
+			return mid
+		}
+	}
+	return -1	
+} 
+
