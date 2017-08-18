@@ -123,4 +123,4 @@ By the way, if the value you're looking for is not in the array, then `upperBoun
 
 This is an example of how you can modify the basic binary search to solve other algorithmic problems as well. Of course, it does require that the array is sorted.
 
-*Written for Go Algorithm by Harsh Vishwakarma*
+*Written by [brotherpowers](https://www.brotherpowers.com/)*

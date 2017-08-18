@@ -187,4 +187,4 @@ Is it a problem that the array must be sorted first? It depends. Keep in mind th
 
 See also [Wikipedia](https://en.wikipedia.org/wiki/Binary_search_algorithm).
 
-*Written for Go Algorithm by Harsh Vishwakarma*
+*Written by [brotherpowers](https://www.brotherpowers.com/)*
