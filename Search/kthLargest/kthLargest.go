@@ -1,4 +1,4 @@
-package nthLargest
+package kthLargest
 
 import (
 	"math/rand"
@@ -29,16 +29,16 @@ func randomPartition(arr *[]int, min, max int) int {
 	return i
 }
 
-func randomSelect(arr *[]int, min, max, n int) int {
+func randomSelect(arr *[]int, min, max, k int) int {
 	if min < max {
 		p := randomPartition(arr, min, max)
 
-		if n == p {
+		if k == p {
 			return (*arr)[p]
-		} else if n < p {
-			return randomSelect(arr, min, p-1, n)
+		} else if k < p {
+			return randomSelect(arr, min, p-1, k)
 		} else {
-			return randomSelect(arr, p+1, max, n)
+			return randomSelect(arr, p+1, max, k)
 		}
 
 	} else {
@@ -46,32 +46,32 @@ func randomSelect(arr *[]int, min, max, n int) int {
 	}
 }
 
-func NthLargest(inputArray []int, n int) int {
+func KthLargest(inputArray []int, k int) int {
 	length := len(inputArray)
 
 	if length < 0 {
 		panic("Array must have at-least one element")
 	}
-	if n >= length {
-		n = length - 1
+	if k >= length {
+		k = length - 1
 	}
 
-	n = length - n - 1
+	k = length - k - 1
 
-	return randomSelect(&inputArray, 0, length-1, n)
+	return randomSelect(&inputArray, 0, length-1, k)
 }
 
-func NthSmallest(inputArray []int, n int) int {
+func KthSmallest(inputArray []int, k int) int {
 	length := len(inputArray)
 
 	if length < 0 {
 		panic("Array must have at-least one element")
 	}
 
-	if n >= length {
-		n = length - 1
+	if k >= length {
+		k = length - 1
 	}
-	return randomSelect(&inputArray, 0, length-1, n)
+	return randomSelect(&inputArray, 0, length-1, k)
 }
 
 // Returns a random integer in the range min...max, inclusive
