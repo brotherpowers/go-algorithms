@@ -15,6 +15,6 @@ func main() {
 	if searchResult == -1 {
 		fmt.Printf("Element %v not found in %v\n", searchNumber, numbers)
 	} else {
-		fmt.Printf("element found at (%v)\n", searchResult)
+		fmt.Printf("Element found at position (%v)\n", searchResult)
 	}
 }
