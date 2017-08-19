@@ -32,7 +32,8 @@ func Count(inputArray []int, searchTerm int) int {
 				low = mid + 1
 			}
 		}
-		return low
+
+		return high
 	}
 
 	return upperBound() - lowerBound()
