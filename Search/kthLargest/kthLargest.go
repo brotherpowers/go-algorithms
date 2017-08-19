@@ -5,44 +5,44 @@ import (
 	"time"
 )
 
-func randomPivot(arr *[]int, min, max int) int {
+func randomPivot(arr *[]int, low, high int) int {
 	// choose a random pivot index
-	pivotIndex := randomNumber(min, max)
-	// swap the element at pivot <---> max position
-	swap(arr, pivotIndex, max)
-	return (*arr)[max]
+	pivotIndex := randomNumber(low, high)
+	// swap the element at pivot <---> high position
+	swap(arr, pivotIndex, high)
+	return (*arr)[high]
 }
 
-func randomPartition(arr *[]int, min, max int) int {
+func randomPartition(arr *[]int, low, high int) int {
 	// fmt.Println("before random pivot")
-	pivot := randomPivot(arr, min, max)
+	pivot := randomPivot(arr, low, high)
 	// fmt.Println("after random pivot")
 
-	i := min
-	for j := min; j < max; j++ {
+	i := low
+	for j := low; j < high; j++ {
 		if (*arr)[j] <= pivot {
 			swap(arr, i, j)
 			i = i + 1
 		}
 	}
-	swap(arr, i, max)
+	swap(arr, i, high)
 	return i
 }
 
-func randomSelect(arr *[]int, min, max, k int) int {
-	if min < max {
-		p := randomPartition(arr, min, max)
+func randomSelect(arr *[]int, low, high, k int) int {
+	if low < high {
+		p := randomPartition(arr, low, high)
 
 		if k == p {
 			return (*arr)[p]
 		} else if k < p {
-			return randomSelect(arr, min, p-1, k)
+			return randomSelect(arr, low, p-1, k)
 		} else {
-			return randomSelect(arr, p+1, max, k)
+			return randomSelect(arr, p+1, high, k)
 		}
 
 	} else {
-		return (*arr)[min]
+		return (*arr)[low]
 	}
 }
 
@@ -74,10 +74,10 @@ func KthSmallest(inputArray []int, k int) int {
 	return randomSelect(&inputArray, 0, length-1, k)
 }
 
-// Returns a random integer in the range min...max, inclusive
-func randomNumber(min, max int) int {
+// Returns a random integer in the range low...high, inclusive
+func randomNumber(low, high int) int {
 	rand.Seed(int64(time.Now().UnixNano()))
-	return rand.Intn(max-min) + min
+	return rand.Intn(high-low) + low
 }
 
 func swap(arr *[]int, i, j int) {
