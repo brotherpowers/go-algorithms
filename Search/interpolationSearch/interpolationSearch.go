@@ -14,9 +14,9 @@ func Search(inputArray []int, searchTerm int) int {
 			low = mid + 1
 		} else if searchTerm < inputArray[mid] {
 			high = mid - 1
+		} else {
+			return mid
 		}
-
-		return mid
 	}
 
 	if searchTerm == inputArray[low] {
