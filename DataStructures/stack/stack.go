@@ -3,7 +3,7 @@ package stack
 import "errors"
 
 type Stack struct {
-	Array []int
+	Array []interface{}
 }
 
 func (s Stack) IsEmpty() bool {
@@ -14,11 +14,11 @@ func (s Stack) Count() int {
 	return len(s.Array)
 }
 
-func (s *Stack) Push(element int) {
+func (s *Stack) Push(element interface{}) {
 	s.Array = append(s.Array, element)
 }
 
-func (s *Stack) Pop() (int, error) {
+func (s *Stack) Pop() (interface{}, error) {
 	length := len(s.Array)
 	if length == 0 {
 		return 0, errors.New("Stack Underflow")
