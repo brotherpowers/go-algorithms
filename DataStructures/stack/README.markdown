@@ -41,8 +41,10 @@ This returns `3`, and so on. If the stack is empty, popping gives an error ("Sta
 A stack is just a wrapper around an array that just lets you push, pop, and look at the top element of the stack:
 
 ```go
-ttype Stack struct {
-	Array []int
+import "errors"
+
+type Stack struct {
+	Array []interface{}
 }
 
 func (s Stack) IsEmpty() bool {
@@ -53,11 +55,11 @@ func (s Stack) Count() int {
 	return len(s.Array)
 }
 
-func (s *Stack) Push(element int) {
+func (s *Stack) Push(element interface{}) {
 	s.Array = append(s.Array, element)
 }
 
-func (s *Stack) Pop() (int, error) {
+func (s *Stack) Pop() (interface{}, error) {
 	length := len(s.Array)
 	if length == 0 {
 		return 0, errors.New("Stack Underflow")
