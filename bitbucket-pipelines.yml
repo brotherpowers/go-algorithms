@@ -6,63 +6,15 @@
 image: golang:1.8
 
 pipelines:
-  default:
-    - step:
-        script: # Modify the commands below to build your repository.
-          - PACKAGE_PATH="${GOPATH}/src/bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}"
-          - mkdir -pv "${PACKAGE_PATH}"
-          - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C "${PACKAGE_PATH}"
+    default:
+        - step:
+            script: # Modify the commands below to build your repository.
+        - PACKAGE_PATH="${GOPATH}/src/bitbucket.org/${BITBUCKET_REPO_OWNER}/${BITBUCKET_REPO_SLUG}"
+        - mkdir -pv "${PACKAGE_PATH}"
+        - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C "${PACKAGE_PATH}"
 
-            // Binary Search
-          - cd "${PACKAGE_PATH}/Search/binarySearch"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Linear Search
-          - cd "${PACKAGE_PATH}/Search/linearSearch"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Interpolation Search
-          - cd "${PACKAGE_PATH}/Search/interpolationSearch"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Kth Largest Number
-          - cd "${PACKAGE_PATH}/Search/kthLargest"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // MinMax
-          - cd "${PACKAGE_PATH}/Search/minmax"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Count Occurrences
-          - cd "${PACKAGE_PATH}/Search/countOccurrences"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Jump Search
-          - cd "${PACKAGE_PATH}/Search/jumpSearch"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Insertion Sort
-          - cd "${PACKAGE_PATH}/Sort/insertion"
-          - go get -v
-          - go build -v
-          - go test -v
-
-            // Stack
-          - cd "${PACKAGE_PATH}/DataStructures/stack"
-          - go get -v
-          - go build -v
-          - go test -v
+          // Binary Search
+        - cd "${PACKAGE_PATH}/Search/binarySearch"
+        - go get -v
+        - go build -v
+        - go test -v
