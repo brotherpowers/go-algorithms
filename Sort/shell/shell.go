@@ -4,7 +4,7 @@ func Sort(arr []int) {
 	length := len(arr)
 
 	if length == 0 {
-		panic("Array size acn not be zero")
+		panic("Array size can not be zero")
 	}
 
 	if length == 1 {
