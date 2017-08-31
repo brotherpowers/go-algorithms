@@ -14,7 +14,5 @@ pipelines:
         - tar -cO --exclude-vcs --exclude=bitbucket-pipelines.yml . | tar -xv -C "${PACKAGE_PATH}"
 
           // Binary Search
-        - cd "${PACKAGE_PATH}/Search/binarySearch"
-        - go get -v
-        - go build -v
-        - go test -v
+        - cd "${PACKAGE_PATH}"
+        - go test $(go list ./...)
