@@ -1,35 +1,30 @@
 package linearSearch
 
-import (
-	"testing"
+import "testing"
 
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
-)
+func TestSearch(t *testing.T) {
+	cases := []struct {
+		in           []int
+		search, want int
+	}{
+		{[]int{1, 2, 46, 74, 89, 105}, 89, 4},
+		{[]int{5, 6, 78, 343, 568, 999}, 1000, -1},
+		{[]int{0, 0, 23, 34, 450, 550, 555, 679, 843}, 843, 8},
+		{[]int{10, 16, 80, 143, 268, 599, 768}, 10, 0},
+		{[]int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67}, 7, 3},
+		{[]int{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, 12, 1},
+		{[]int{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, 112, -1},
+		{[]int{29897, 34834, 43379, 46179, 60064, 64337, 71814, 73286, 83304, 96122}, 43379, 2},
+		{[]int{29897, 34834, 43379, 46179, 60064, 64337, 71814, 73286, 83304, 96122}, 118, -1},
+		{[]int{11}, 11, 0},
+		{[]int{11}, 12, -1},
+	}
 
-func TestCart(t *testing.T) {
-	RegisterFailHandler(Fail)
-	RunSpecs(t, "Linear search test cases")
+	for _, c := range cases {
+		got := Search(c.in, c.search)
+
+		if got != c.want {
+			t.Errorf("Search (%v) in (%v)\n Result = %v,\n Wants = %v", c.search, c.in, got, c.want)
+		}
+	}
 }
-
-var _ = Describe("Linear Search", func() {
-	It("search the elements", func() {
-		Expect(Search([]int{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, 12)).To(Equal(1))
-		Expect(Search([]int{11, 12, 13, 14, 15, 16, 17, 18, 19, 20}, 112)).To(Equal(-1))
-
-		Expect(Search([]int{29897, 34834, 43379, 46179, 60064, 64337, 71814, 73286, 83304, 96122}, 43379)).To(Equal(2))
-		Expect(Search([]int{29897, 34834, 43379, 46179, 60064, 64337, 71814, 73286, 83304, 96122}, 118)).To(Equal(-1))
-
-		Expect(Search([]int{11, 12}, 11)).To(Equal(0))
-		Expect(Search([]int{11, 12}, 10)).To(Equal(-1))
-
-		Expect(Search([]int{11}, 11)).To(Equal(0))
-		Expect(Search([]int{11}, 10)).To(Equal(-1))
-
-		Expect(Search([]int{20, 19, 18, 17, 16, 15, 14, 13, 12, 10}, 12)).To(Equal(8))
-		Expect(Search([]int{13, 12, 10}, 12)).To(Equal(1))
-
-		Expect(Search([]int{43379, 46179, 64337, 83304, 73286, 29897, 60064, 96122, 34834, 71814}, 60064)).To(Equal(6))
-		Expect(Search([]int{43379, 46179, 64337}, 60064)).To(Equal(-1))
-	})
-})
