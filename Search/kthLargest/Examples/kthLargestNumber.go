@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/brotherpowers/go-algorithms/Search/kthLargest"
 	"sort"
+
+	"github.com/brotherpowers/go-algorithms/Search/kthLargest"
 )
 
 func main() {
