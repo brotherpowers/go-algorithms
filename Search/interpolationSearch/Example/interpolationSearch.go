@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-algorithms/Search/interpolationSearch"
+
+	"github.com/brotherpowers/go-algorithms/Search/interpolationSearch"
 )
 
 func main() {

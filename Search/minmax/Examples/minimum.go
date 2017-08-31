@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-algorithms/Search/minmax"
+	"github.com/brotherpowers/go-algorithms/Search/minmax"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-algorithms/Search/countOccurrences"
+	"github.com/brotherpowers/go-algorithms/Search/countOccurrences"
 )
 
 func main() {

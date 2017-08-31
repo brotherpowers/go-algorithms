@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-algorithms/Search/linearSearch"
+	"github.com/brotherpowers/go-algorithms/Search/linearSearch"
 )
 
 func main() {

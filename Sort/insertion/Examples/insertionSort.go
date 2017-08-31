@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-algorithms/Sort/insertion"
+	"github.com/brotherpowers/go-algorithms/Sort/insertion"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-algorithms/DataStructures/stack"
+	"github.com/brotherpowers/go-algorithms/DataStructures/stack"
 )
 
 func main() {

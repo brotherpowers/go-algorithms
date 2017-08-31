@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-algorithms/Search/kthLargest"
+	"github.com/brotherpowers/go-algorithms/Search/kthLargest"
 	"sort"
 )
 
