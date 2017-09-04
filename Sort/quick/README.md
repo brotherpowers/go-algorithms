@@ -40,9 +40,7 @@ The only guarantee is that to the left of the pivot are all the smaller elements
 
 ## Lomuto's partitioning scheme
 
-In the first example of quicksort I showed you, partitioning was done by calling Swift's `filter()` function three times. That is not very efficient. So let's look at a smarter partitioning algorithm that works *in place*, i.e. by modifying the original array.
-
-Here's an implementation of Lomuto's partitioning scheme in Swift:
+Here's an implementation of Lomuto's partitioning scheme:
 
 ```go
 func partitionLumoto(arr []int, low, high int) int {
@@ -106,7 +104,6 @@ In ASCII art the array is divided up like this:
 
 The loop looks at each element from `low` to `high-1` in turn. If the value of the current element is less than or equal to the pivot, it is moved into the first region using a swap.
 
-> **Note:** In Swift, the notation `(x, y) = (y, x)` is a convenient way to perform a swap between the values of `x` and `y`. You can also write `swap(&x, &y)`.
 
 After the loop is over, the pivot is still the last element in the array. So we swap it with the first element that is greater than the pivot. Now the pivot sits between the <= and > regions and the array is properly partitioned.
 
