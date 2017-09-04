@@ -1,5 +1,10 @@
 package quick
 
+import (
+	"math/rand"
+	"time"
+)
+
 func Swap(arr *[]int, i, j int) {
 	(*arr)[i], (*arr)[j] = (*arr)[j], (*arr)[i]
 }
@@ -81,4 +86,20 @@ func SortHoare(arr []int, low, high int) {
 		SortHoare(arr, low, p)
 		SortHoare(arr, p+1, high)
 	}
+}
+
+func SortRandom(arr []int, low, high int) {
+	if low < high {
+		pivotIndex := random(low, high)
+		arr[pivotIndex], arr[high] = arr[high], arr[pivotIndex]
+
+		p := PartitionLumoto(arr, low, high)
+		SortRandom(arr, low, p-1)
+		SortRandom(arr, p+1, high)
+	}
+}
+
+func random(low, high int) int {
+	rand.Seed(time.Now().Unix())
+	return rand.Intn(high-low) + low
 }
