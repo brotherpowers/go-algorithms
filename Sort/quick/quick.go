@@ -10,7 +10,7 @@ func Swap(arr *[]int, i, j int) {
 }
 
 // Lomuto's partitioning scheme
-func PartitionLumoto(arr []int, low, high int) int {
+func partitionLumoto(arr []int, low, high int) int {
 	length := len(arr)
 
 	if length == 0 {
@@ -38,14 +38,14 @@ func PartitionLumoto(arr []int, low, high int) int {
 // Sort using Lomuto's partitioning
 func SortLumoto(arr []int, low, high int) {
 	if low < high {
-		p := PartitionLumoto(arr, low, high)
+		p := partitionLumoto(arr, low, high)
 		SortLumoto(arr, low, p-1)
 		SortLumoto(arr, p+1, high)
 	}
 }
 
 // Hoare's partitioning scheme
-func PartitionHoare(arr []int, low, high int) int {
+func partitionHoare(arr []int, low, high int) int {
 	length := len(arr)
 
 	if length == 0 {
@@ -80,26 +80,66 @@ func PartitionHoare(arr []int, low, high int) int {
 	}
 }
 
+// Sort using Hoare's partitioning scheme
 func SortHoare(arr []int, low, high int) {
 	if low < high {
-		p := PartitionHoare(arr, low, high)
+		p := partitionHoare(arr, low, high)
 		SortHoare(arr, low, p)
 		SortHoare(arr, p+1, high)
 	}
 }
 
+// Quick Sort Random
 func SortRandom(arr []int, low, high int) {
 	if low < high {
 		pivotIndex := random(low, high)
 		arr[pivotIndex], arr[high] = arr[high], arr[pivotIndex]
 
-		p := PartitionLumoto(arr, low, high)
+		p := partitionLumoto(arr, low, high)
 		SortRandom(arr, low, p-1)
 		SortRandom(arr, p+1, high)
 	}
 }
 
+// Returns a random int within range (low, high)
 func random(low, high int) int {
 	rand.Seed(time.Now().Unix())
 	return rand.Intn(high-low) + low
+}
+
+func partitionDutchFlag(arr []int, low, high, pivotIndex int) (int, int) {
+	length := len(arr)
+
+	if length == 0 {
+		panic("Array size can not be zero")
+	}
+
+	pivot := arr[pivotIndex]
+	smaller := low
+	equal := low
+	larger := high
+
+	for equal <= larger {
+		if arr[equal] < pivot {
+			Swap(&arr, smaller, equal)
+			smaller++
+			equal++
+		} else if arr[equal] == pivot {
+			equal++
+		} else {
+			Swap(&arr, equal, larger)
+			larger--
+		}
+	}
+
+	return smaller, larger
+}
+
+func SortDutchFlag(arr []int, low, high int) {
+	if low < high {
+		pivotIndex := random(low, high)
+		p, q := partitionDutchFlag(arr, low, high, pivotIndex)
+		SortDutchFlag(arr, low, p-1)
+		SortDutchFlag(arr, q+1, high)
+	}
 }

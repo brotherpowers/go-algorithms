@@ -2,9 +2,9 @@
 
 Goal: Count how often a certain value appears in an array.
 
-The obvious way to do this is with a [linear search](../Linear%20Search/) from the beginning of the array until the end, keeping count of how often you come across the value. That is an **O(n)** algorithm.
+The obvious way to do this is with a [linear search](../linearSearch/) from the beginning of the array until the end, keeping count of how often you come across the value. That is an **O(n)** algorithm.
 
-However, if the array is sorted you can do it much faster, in **O(log n)** time, by using a modification of [binary search](../Binary%20Search/).
+However, if the array is sorted you can do it much faster, in **O(log n)** time, by using a modification of [binary search](../binarySearch/).
 
 Let's say we have the following array:
 
@@ -61,7 +61,7 @@ func Count(inputArray []int, searchTerm int) int {
 }
 ```
 
-Notice that the helper functions `lowerBound()` and `upperBound()` are very similar to the [binary search](../Binary%20Search/) algorithm. The big difference is that they don't stop when they find the search key, but keep going.
+Notice that the helper functions `lowerBound()` and `upperBound()` are very similar to the [binary search](../binarySearch/) algorithm. The big difference is that they don't stop when they find the search key, but keep going.
 
 To test this algorithm, copy the code to a playground and then do:
 
