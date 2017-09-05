@@ -1,4 +1,4 @@
-package heap
+package heapSort
 
 // To heapify a subtree rooted with node root which is
 // an index in arr[]. heapSize is size of heap

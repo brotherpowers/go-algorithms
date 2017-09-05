@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/brotherpowers/go-algorithms/Sort/heap"
+	"github.com/brotherpowers/go-algorithms/Sort/insertionSort"
 )
 
 func main() {
@@ -12,8 +12,8 @@ func main() {
 
 	fmt.Println("Array before sorting", numbers)
 
-	// Performing heap sort
-	heap.Sort(numbers)
+	// Performing insertion sort
+	insertionSort.Sort(numbers)
 
 	fmt.Println("Array after sorting", numbers)
 }

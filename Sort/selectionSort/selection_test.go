@@ -1,12 +1,12 @@
-package merge
+package selectionSort
 
 import (
 	"reflect"
 	"testing"
 )
 
-// Merge Sort
 func TestSort(t *testing.T) {
+
 	cases := []struct {
 		in   []int
 		want []int
@@ -16,9 +16,12 @@ func TestSort(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		got := Sort(c.in)
-		if !reflect.DeepEqual(got, c.want) {
-			t.Errorf("Sort -> %v, want = %v", got, c.want)
+		Sort(c.in)
+
+		got := c.in
+
+		if !reflect.DeepEqual(c.in, c.want) {
+			t.Error("Sort == %v, want = %v", got, c.want)
 		}
 	}
 }

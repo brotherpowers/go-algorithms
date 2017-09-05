@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/brotherpowers/go-algorithms/Sort/merge"
+	"github.com/brotherpowers/go-algorithms/Sort/mergeSort"
 )
 
 func main() {
@@ -13,5 +13,5 @@ func main() {
 	fmt.Println("Array before sorting", numbers)
 
 	// Performing insertion sort
-	fmt.Println("Array after sorting", merge.Sort(numbers))
+	fmt.Println("Array after sorting", mergeSort.Sort(numbers))
 }

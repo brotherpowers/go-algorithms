@@ -1,4 +1,4 @@
-package selection
+package insertionSort
 
 import (
 	"reflect"
@@ -16,12 +16,14 @@ func TestSort(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		Sort(c.in)
 
-		got := c.in
+		Sort(c.in) // Sort the array
 
-		if !reflect.DeepEqual(c.in, c.want) {
-			t.Error("Sort == %v, want = %v", got, c.want)
+		got := c.in // Fetch the Sorted array
+
+		if !reflect.DeepEqual(got, c.want) {
+			t.Errorf("Sort == %v, want = %v", got, c.want)
 		}
 	}
+
 }

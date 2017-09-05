@@ -1,4 +1,4 @@
-package shell
+package shellSort
 
 func Sort(arr []int) {
 	length := len(arr)

@@ -1,4 +1,4 @@
-package heap
+package shellSort
 
 import (
 	"reflect"
@@ -6,7 +6,6 @@ import (
 )
 
 func TestSort(t *testing.T) {
-
 	cases := []struct {
 		in   []int
 		want []int
@@ -16,13 +15,12 @@ func TestSort(t *testing.T) {
 	}
 
 	for _, c := range cases {
+		Sort(c.in)
 
-		Sort(c.in) // Sort the array
+		got := c.in
 
-		got := c.in // Fetch the Sorted array
-
-		if !reflect.DeepEqual(got, c.want) {
-			t.Errorf("Sort == %v, want = %v", got, c.want)
+		if !reflect.DeepEqual(c.in, c.want) {
+			t.Errorf("Sort -> %v, want = %v", got, c.want)
 		}
 	}
 
