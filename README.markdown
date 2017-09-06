@@ -43,6 +43,8 @@ Special-purpose sorts:
 
 [Abhimanyu Sharma](https://github.com/abhimanyu003) | [Harsh Vishwakarma](https://github.com/harshvishu)
 
+Want to help us out? Read the guidelines for [contributing](CONTRIBUTING.md) to go-algorightms.
+
 [![Build Status](https://api.travis-ci.org/brotherpowers/go-algorithms.svg)](https://travis-ci.org/brotherpowers/go-algorithms)
 
 *Written by [brotherpowers](https://www.brotherpowers.com/)*
