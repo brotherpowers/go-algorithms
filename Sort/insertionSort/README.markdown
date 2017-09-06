@@ -87,7 +87,7 @@ This was a description of the inner loop of the insertion sort algorithm, which 
 
 ## The code
 
-Here is an implementation of insertion sort in Swift:
+Here is an implementation of insertion sort:
 
 ```go
 func Sort(arr []int) {
@@ -204,8 +204,6 @@ Insertion sort is really fast if the array is already sorted. That sounds obviou
 The worst-case and average case performance of insertion sort is **O(n^2)**. That's because there are two nested loops in this function. Other sort algorithms, such as quicksort and merge sort, have **O(n log n)** performance, which is faster on large inputs.
 
 Insertion sort is actually very fast for sorting small arrays. Some standard libraries have sort functions that switch from a quicksort to insertion sort when the partition size is 10 or less.
-
-I did a quick test comparing our `insertionSort()` with Swift's built-in `sort()`. On arrays of about 100 items or so, the difference in speed is tiny. However, as your input becomes larger, **O(n^2)** quickly starts to perform a lot worse than **O(n log n)** and insertion sort just can't keep up.
 
 ## See also
 
