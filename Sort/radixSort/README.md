@@ -1,13 +1,15 @@
 # Radix Sort
 
-Radix sort is a sorting algorithm that takes as input an array of integers and uses a sorting subroutine( that is often another efficient sorting algorith) to sort the integers by their radix, or rather their digit.  [Counting Sort](../countingSort/), and Bucket Sort are often times used as the subroutine for Radix Sort. For this implementation, we will use [Counting Sort](../countingSort/)
+Radix sort is a sorting algorithm that takes as input an array of integers and uses a sorting subroutine( that is often another efficient sorting algorith) to sort the integers by their radix, or rather their digit.  [Counting Sort](../countingSort/), and Bucket Sort are often times used as the subroutine for Radix Sort. For this implementation, we will use [Counting Sort](../countingSort/).
 
 > **Note:** This implementation does not handle negative numbers.
 
 ## Example
 
-* `Input [170, 45, 75, 90, 802, 24, 2, 66]`
-* `Output [2, 24, 45, 66, 75, 90, 170, 802]`
+```
+Input [170, 45, 75, 90, 802, 24, 2, 66]
+Output [2, 24, 45, 66, 75, 90, 170, 802]
+```
 
 ### Step 1:
 The first step in this algorithm is to define the digit or rather the "base" or radix that we will use to sort.
