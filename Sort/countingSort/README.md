@@ -2,6 +2,8 @@
 
 Counting sort is an algorithm for sorting a collection of objects according to keys that are small integers. It operates by counting the number of objects that have each distinct key values, and using arithmetic on those counts to determine the positions of each key value in the output sequence.
 
+> **Note:** This implementation does not handle negative numbers.
+
 ## Example
 
 To understand the algorithm let's walk through a small example.
