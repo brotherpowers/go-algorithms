@@ -6,8 +6,8 @@ import (
 
 func TestNthLargest(t *testing.T) {
 	cases := []struct {
-		in      []int
-		k, want int
+		in           []int
+		search, want int
 	}{
 		{[]int{11, 59, 3, 2, 53, 17, 31, 7, 19, 67, 47, 13, 37, 61, 29, 43, 5, 41, 23}, 2, 59},
 		{[]int{5, 2, 4, 7}, 1, 5},
@@ -15,10 +15,10 @@ func TestNthLargest(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		got := KthLargest(c.in, c.k)
+		got := KthLargest(c.in, c.search)
 
 		if got != c.want {
-			t.Errorf("%vth largest number in %v == %v, want = %v", c.k, c.in, got, c.want)
+			t.Errorf("%vth largest number in %v == %v, want = %v", c.search, c.in, got, c.want)
 		}
 	}
 }
