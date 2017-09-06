@@ -104,6 +104,8 @@ Here is an implementation of counting sort
 	}
 ```
 
+> **Note:** This implementation doesn't handle `negative numbers`.
+
 ## Performance
 
 The algorithm uses simple loops to sort a collection. Hence, the time to run the entire algorithm is **O(n+k)** where **O(n)** represents the loops that are required to initialize the output arrays and **O(k)** is the loop required to create the count array.
