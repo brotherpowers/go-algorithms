@@ -26,6 +26,6 @@ If what you have in mind is a new addition, please follow this process when subm
 
 For the unit tests:
 
-- The unit tests will be run on [Travis-CI](https://travis-ci.org/brotherpowers/go-algorithms). you don't need to male any changes as all the test cases will be automatically run.
+- The unit tests will be run on [Travis-CI](https://travis-ci.org/brotherpowers/go-algorithms). You don't need to make any changes as all the test cases will be automatically run.
 
 **All contributions are most welcome!**
