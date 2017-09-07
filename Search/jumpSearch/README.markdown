@@ -1,8 +1,8 @@
-# Linear Search
+# Jump Search
 
 Goal: Find a particular value in an array.
 
-Like [Binary Search](../Search/binarySearch/), Jump Search is a searching algorithm for sorted arrays. The basic idea is to check fewer elements than [Linear search](../Search/linearSearch/) by jumping ahead by fixed steps or skipping some elements in place of searching all elements.
+Like [Binary Search](../Search/binarySearch/), **Jump Search** is a searching algorithm for sorted arrays. The basic idea is to check fewer elements than [Linear search](../Search/linearSearch/) by jumping ahead by fixed steps or skipping some elements in place of searching all elements.
 
 ## An example
 
