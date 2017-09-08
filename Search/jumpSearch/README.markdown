@@ -38,7 +38,7 @@ From here on we will perform [Linear Search](../Search/linearSearch/) traversing
   	                         |---|---> X
 			  
 
-###What is the optimal block size to be skipped?
+## What is the optimal block size to be skipped?
 
 In the worst case, we have to do `n/steps` jumps *(where `n` is the size of array and `steps` is the size of the jump we will be using to skip of the elements)* and if the last checked value is greater than the element to be searched for, we perform `steps-1` comparisons more for linear search. Therefore the total number of comparisons in the worst case will be ((n/steps) + steps-1). The value of the function `((n/steps) + steps-1)` will be minimum when `steps = √n`. Therefore, the best step size is steps = √n.
 
