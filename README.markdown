@@ -20,6 +20,7 @@ The goal of this project is to **explain how algorithms work**. The focus is on 
 
 Basic sorts:
 
+- [Bubble Sort](Sort/bubbleSort/)
 - [Insertion Sort](Sort/insertionSort/)
 - [Selection Sort](Sort/selectionSort/)
 - [Shell Sort](Sort/shellSort/)
