@@ -110,6 +110,11 @@ The selection sort is easy to understand but it performs slow as **O(n^2)**. It 
 
 The [Heap sort](../heap/) uses the same principle as selection sort but has a fast method for finding the minimum value in the rest of the array. The heap sort' performance is **O(n log n)**.
 
+* Worst case performance: **O(n^2)**
+* Best case performance: **O(n^2)**
+* Average case performance: **O(n^2)**
+* Worst case space complexity: **O(n) total, O(1) auxiliary**
+
 ## See also
 
 [Selection sort on Wikipedia](https://en.wikipedia.org/wiki/Selection_sort)
