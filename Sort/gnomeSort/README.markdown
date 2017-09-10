@@ -1,4 +1,4 @@
-# Linear Search
+# Gnome Sort
 
 Goal: Sort an array of numbers from low to high (or high to low).
 
