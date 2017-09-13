@@ -16,7 +16,4 @@ func main() {
 
 	largest := kthLargest.KthLargest(arr, n)
 	fmt.Println(n, "Largest number in", arr, "is", largest)
-
-	smallest := kthLargest.KthSmallest(arr, n)
-	fmt.Println(n, "Smallest number in", arr, "is", smallest)
 }
