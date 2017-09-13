@@ -38,23 +38,22 @@ Now you know why it's called a "binary" search: in every step it splits the arra
 Here is a recursive implementation of binary search in Go:
 
 ```go
-func SearchRecursive(inputArray []int, searchTerm, lowerBound, upperBound int) int{
+func SearchRecursive(inputArray []int, searchTerm, lowerBound, upperBound int) int {
+
 	if lowerBound > upperBound {
 		return -1
-	}else{
-		mid := lowerBound + (upperBound - lowerBound)/2
-
-		if inputArray[mid] > searchTerm{
-			return SearchRecursive(inputArray, searchTerm, lowerBound, mid)
-		}else if inputArray[mid] < searchTerm{
-			return SearchRecursive(inputArray, searchTerm, mid+1, upperBound)
-		}else{
-			return mid
-		}
 	}
-	return -1	
-} 
 
+	mid := (upperBound + lowerBound) >> 1
+
+	if inputArray[mid] > searchTerm {
+		return SearchRecursive(inputArray, searchTerm, lowerBound, mid)
+	} else if inputArray[mid] < searchTerm {
+		return SearchRecursive(inputArray, searchTerm, mid+1, upperBound)
+	}
+
+	return mid
+}
 ```
 
 ```go
@@ -158,7 +157,7 @@ func SearchIterative(inputArray []int, searchTerm int) int{
 
 	for lowerBound < upperBound{
 		mid := lowerBound + (upperBound - lowerBound) / 2
-	
+
 		if inputArray[mid] == searchTerm{
 			return mid
 		}else if inputArray[mid] < searchTerm{
