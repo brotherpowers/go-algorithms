@@ -24,6 +24,7 @@ Basic sorts:
 - [Insertion Sort](Sort/insertionSort/)
 - [Selection Sort](Sort/selectionSort/)
 - [Shell Sort](Sort/shellSort/)
+- [Gnome Sort](Sort/gnomeSort/)
 
 Fast sorts:
 
