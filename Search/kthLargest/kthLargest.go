@@ -46,8 +46,8 @@ func randomSelect(arr *[]int, low, high, k int) int {
 	}
 }
 
-func KthLargest(inputArray []int, k int) int {
-	length := len(inputArray)
+func KthLargest(arr []int, k int) int {
+	length := len(arr)
 
 	if length < 0 {
 		panic("Array must have at-least one element")
@@ -58,20 +58,7 @@ func KthLargest(inputArray []int, k int) int {
 
 	k = length - k - 1
 
-	return randomSelect(&inputArray, 0, length-1, k)
-}
-
-func KthSmallest(inputArray []int, k int) int {
-	length := len(inputArray)
-
-	if length < 0 {
-		panic("Array must have at-least one element")
-	}
-
-	if k >= length {
-		k = length - 1
-	}
-	return randomSelect(&inputArray, 0, length-1, k)
+	return randomSelect(&arr, 0, length-1, k)
 }
 
 // Returns a random integer in the range low...high, inclusive
@@ -84,9 +71,47 @@ func swap(arr *[]int, i, j int) {
 	(*arr)[i], (*arr)[j] = (*arr)[j], (*arr)[i]
 }
 
-/*
-func swap(arr *[]int, i, j int) {
-	temp := (*arr)[i]
-	(*arr)[i] = (*arr)[j]
-	(*arr)[j] = temp
-}*/
+// Find the Kth largest nnumber using Heap
+func KthLargestUsingHeap(arr []int, k int) int {
+
+	var heapify func(arr []int, heapSize, root int)
+	heapify = func(arr []int, heapSize, root int) {
+		largest := root
+		left := 2*root + 1
+		right := 2*root + 2
+
+		// If left child is larger than root
+		if left < heapSize && arr[left] > arr[largest] {
+			largest = left
+		}
+
+		// If right child is larger than largest so far
+		if right < heapSize && arr[right] > arr[largest] {
+			largest = right
+		}
+
+		// If largest is not root
+		if largest != root {
+			arr[root], arr[largest] = arr[largest], arr[root]
+			heapify(arr, heapSize, largest) // Recursively heapify the affected sub-tree
+		}
+	}
+
+	length := len(arr)
+	if length == 0 {
+		panic("Array size can not be zero")
+	}
+	if length == 1 {
+		return arr[0]
+	}
+
+	// Build heap (rearrange array)
+	for i := length/2 - 1; i >= 0; i-- {
+		heapify(arr, length, i)
+	}
+	for i := length - 1; i >= (length - 1 - k); i-- {
+		arr[0], arr[i] = arr[i], arr[0] // Move current root to end
+		heapify(arr, i, 0)              // call max heapify on the reduced heap
+	}
+	return arr[length-1-k]
+}
