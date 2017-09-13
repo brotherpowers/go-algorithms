@@ -7,7 +7,7 @@ func Count(inputArray []int, searchTerm int) int {
 		high := len(inputArray)
 
 		for low < high {
-			mid := low + (high-low)/2
+			mid := (high + low) >> 1
 
 			if inputArray[mid] < searchTerm {
 				low = mid + 1
@@ -24,7 +24,7 @@ func Count(inputArray []int, searchTerm int) int {
 		high := len(inputArray)
 
 		for low < high {
-			mid := low + (high-low)/2
+			mid := (high + low) >> 1
 
 			if inputArray[mid] > searchTerm {
 				high = mid
