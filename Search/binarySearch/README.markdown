@@ -80,8 +80,10 @@ We're trying to determine if the number `43` is in this array.
 To split the array in half, we need to know the index of the object in the middle. That's determined by this line:
 
 ```go
-let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+let midIndex = (range.upperBound + range.lowerBound) >> 1 // or range.lowerBound + (range.upperBound - range.lowerBound) / 2
 ```
+
+> **Note:** In case you are wondering why are we using `>>` Shift operator. You may want to read [Wiki](https://en.wikipedia.org/wiki/Logical_shift). 
 
 Initially, the range has `lowerBound = 0` and `upperBound = 19`. Filling in these values, we find that `midIndex` is `0 + (19 - 0)/2 = 19/2 = 9`. It's actually `9.5` but because we're using integers, the answer is rounded down.
 
@@ -110,7 +112,8 @@ Now we can simply repeat the binary search, but on the array interval from `mid 
 
 Since we no longer need to concern ourselves with the left half of the array, I've marked that with `x`'s. From now on we'll only look at the right half, which starts at array index 10.
 
-We calculate the index of the new middle element: `mid = 10 + (19 - 10)/2 = 14`, and split the array down the middle again.
+
+We calculate the index of the new middle element: `mid = (19 + 10) >> 1 = 14`, and split the array down the middle again.
 
 	[ x, x, x, x, x, x, x, x, x, x | 31, 37, 41, 43, 47, 53, 59, 61, 67 ]
 	                                                 *
@@ -136,36 +139,37 @@ Again, the search key is greater, so split once more and take the right side:
 	[ x, x, x, x, x, x, x, x, x, x | x, x | x | 43 | x, x, x, x, x ]
 	                                            *
 
-And now we're done. The search key equals the array element we're looking at, so we've finally found what we were searching for: number `43` is at array index `13`. w00t!
+And now we're done. The search key equals the array element we're looking at, so we've finally found what we were searching for: number `43` is at array index `13`!
 
 It may have seemed like a lot of work, but in reality it only took four steps to find the search key in the array, which sounds about right because `log_2(19) = 4.23`. With a linear search, it would have taken 14 steps.
 
 What would happen if we were to search for `42` instead of `43`? In that case, we can't split up the array any further. The `upperBound` becomes smaller than `lowerBound`. That tells the algorithm the search key is not in the array and it returns `nil`.
 
-> **Note:** Many implementations of binary search calculate `mid = (lowerBound + upperBound) / 2`. This contains a subtle bug that only appears with very large arrays, because `lowerBound + upperBound` may overflow the maximum number an integer can hold. This situation is unlikely to happen on a 64-bit CPU, but it definitely can on 32-bit machines.
+> **Note:** Many implementations of binary search calculate `mid = (upperBound + lowerBound) >> 1`. This contains a subtle bug that only appears with very large arrays, because `lowerBound + upperBound` may overflow the maximum number an integer can hold. This situation is unlikely to happen on a 64-bit CPU, but it definitely can on 32-bit machines.
 
-## Iterative vs recursive
+## Iterative vs Recursive
 
 Binary search is recursive in nature because you apply the same logic over and over again to smaller and smaller subarrays. However, that does not mean you must implement `SearchRecursive(inputArray []int, searchTerm, lowerBound, upperBound int)` as a recursive function. It's often more efficient to convert a recursive algorithm into an iterative version, using a simple loop instead of lots of recursive function calls.
 
 Here is an iterative implementation of binary search in Go:
 
 ```go
-func SearchIterative(inputArray []int, searchTerm int) int{
+func SearchIterative(inputArray []int, searchTerm int) int {
 	lowerBound := 0
 	upperBound := len(inputArray)
 
-	for lowerBound < upperBound{
-		mid := lowerBound + (upperBound - lowerBound) / 2
+	for lowerBound < upperBound {
+		mid := (upperBound + lowerBound) >> 1
 
-		if inputArray[mid] == searchTerm{
+		if inputArray[mid] == searchTerm {
 			return mid
-		}else if inputArray[mid] < searchTerm{
+		} else if inputArray[mid] < searchTerm {
 			lowerBound = mid + 1
-		}else{
+		} else {
 			upperBound = mid
 		}
 	}
+
 	return -1
 }
 ```
@@ -175,7 +179,7 @@ As you can see, the code is very similar to the recursive version. The main diff
 Use it like this:
 
 ```go
-numbers := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67}
+numbers := []int{ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67 }
 
 binarySearch.SearchIterative(numbers, 43)  // gives 13
 ```
